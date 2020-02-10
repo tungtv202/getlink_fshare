@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<head>
+    <link rel="shortcut icon" href="https://tungexplorer.s3.ap-southeast-1.amazonaws.com/logo_icon/icon.jpg">
+    <title>Get Link - Fshare</title>
+    <html prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#"></html>
+    <meta property="og:image" content="https://tungexplorer.s3.ap-southeast-1.amazonaws.com/ahbp.gif" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" type="text/css"
+          href="webjars/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.4.0/sockjs.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.js"></script>
+</head>
+<body>
+<style>
+    .loader {
+        border: 16px solid #f3f3f3;
+        border-radius: 50%;
+        border-top: 16px solid blue;
+        border-right: 16px solid green;
+        border-bottom: 16px solid red;
+        width: 50px;
+        height: 50px;
+        -webkit-animation: spin 2s linear infinite;
+        animation: spin 2s linear infinite;
+    }
+
+    @-webkit-keyframes spin {
+        0% { -webkit-transform: rotate(0deg); }
+        100% { -webkit-transform: rotate(360deg); }
+    }
+
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+</style>
+<div class="container" style="min-height: 500px">
+    <img class="logo-fshare" src="https://www.fshare.vn/images/logo-fshare.svg" alt="Fshare"
+         style="margin: 10px 0px 15px 0px;" height="50px">
+    <div class="starter-template">
+        <form class="form-horizontal" id="getlink-form">
+            <div class="form-group form-group-lg">
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="request-link" required
+                           placeholder="Sao chép địa chỉ tải về vào đây"/>
+                </div>
+                <div class="col-sm-2">
+                    <button type="submit" id="bth-search"
+                            class="btn btn-primary btn-lg">Get link
+                    </button>
+                </div>
+            </div>
+        </form>
+        <div id="feedback">
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript"
+        src="webjars/jquery/2.2.4/jquery.min.js"></script>
+<script type="text/javascript" src="js/main.js"></script>
+</body>
+</html>
+
+<script>
+
+</script>
