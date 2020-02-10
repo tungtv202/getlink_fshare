@@ -1,17 +1,18 @@
-package tung.demo.springboot_ajax.startup;
+package tung.demo.springboot_ajax.scheduler;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.CommandLineRunner;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 import tung.demo.springboot_ajax.service.FshareService;
 
 @Component
-public class GetToken implements CommandLineRunner {
+public class RefreshToken {
+
     @Autowired
     private FshareService fshareService;
 
-    @Override
-    public void run(String... strings) {
-//        fshareService.setToken();
+    @Scheduled(fixedRate = 1000 * 60 * 60 * 2)
+    public void run() {
+        fshareService.setToken();
     }
 }

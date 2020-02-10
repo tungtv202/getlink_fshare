@@ -9,9 +9,9 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>tung.demo</groupId>
-    <artifactId>springboot_ajax</artifactId>
+    <artifactId>springboot_getlink_fshare</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>springboot_ajax</name>
+    <name>springboot_getlink_fshare</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>

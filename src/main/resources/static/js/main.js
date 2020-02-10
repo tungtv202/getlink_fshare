@@ -28,8 +28,13 @@ function fire_ajax_submit() {
         cache: false,
         timeout: 600000,
         success: function (data) {
-            console.log("data oke" + data);
-            var htmlRender = "<div class=\"loader\"></div>";
+            var htmlRender = "";
+            if ("valid".localeCompare(data)) {
+                htmlRender = "<div class=\"loader\"></div>";
+            } else {
+                htmlRender = "<pre>"
+                    + data + "</pre>";
+            }
             $('#feedback').html(htmlRender);
 
         },
@@ -42,7 +47,7 @@ function fire_ajax_submit() {
     });
 }
 
-var SOCKET_URL_REGISTER = '/websocket-example';
+var SOCKET_URL_REGISTER = '/websocket-receive-link';
 var stompClient = null;
 
 function initSocket() {
@@ -70,10 +75,10 @@ function initSocket() {
 }
 
 function makeid(length) {
-    var result           = '';
-    var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    var result = '';
+    var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
     var charactersLength = characters.length;
-    for ( var i = 0; i < length; i++ ) {
+    for (var i = 0; i < length; i++) {
         result += characters.charAt(Math.floor(Math.random() * charactersLength));
     }
     return result;

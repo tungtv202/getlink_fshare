@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import tung.demo.springboot_ajax.dto.RequestLink;
+import tung.demo.springboot_ajax.service.FshareService;
+import tung.demo.springboot_ajax.task.TaskGetLink;
 
 import javax.validation.Valid;
 import java.net.MalformedURLException;
@@ -23,6 +25,9 @@ public class GetLinkController {
     @Autowired
     private TaskExecutor task;
 
+    @Autowired
+    private FshareService fshareService;
+
     @PostMapping("/api/get-link")
     public ResponseEntity<?> triggerTaskGetLinkViaAjax(@Valid @RequestBody RequestLink requestLink, Errors errors) {
         if (errors.hasErrors()) {
@@ -32,7 +37,7 @@ public class GetLinkController {
         if (!"valid".equals(validate)) {
             return ResponseEntity.ok(validate);
         }
-        task.execute(new TaskGetLink(requestLink, template));
+        task.execute(new TaskGetLink(requestLink, template, fshareService));
         return ResponseEntity.ok("ok");
     }
 
